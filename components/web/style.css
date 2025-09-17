@@ -1,2 +1,149 @@
-.title { font-size: clamp(32px, 6vw, 72px); margin: 0 0 .5rem; }
-.lead { opacity: .8; }
+.container {
+  position: relative;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0px;
+  background: #fff;
+}
+
+.contents-container {
+  position: relative;
+  width: 1068px;
+  min-width: 1068px;
+  min-height: 950px;
+}
+
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  opacity: 0.3;
+  object-fit: cover;
+}
+
+.star-btn {
+  position: absolute;
+}
+
+.profile-download-btn {
+  position: absolute;
+  top: -50px;
+  left: 0px;
+  z-index: 1000;
+  > img {
+    width: 380px;
+  }
+}
+
+.download-text {
+  position: absolute;
+  top: 55px;
+  left: 280px;
+  font-size: 24px;
+  z-index: 1000;
+}
+
+.right-top-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  text-align: right;
+
+  > div {
+    width: 515px;
+    height: 113px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f3bfff;
+    border: 2px solid #79748c;
+    border-radius: 100px;
+
+    font-size: 28px;
+    line-height: 130%;
+    color: #241d43;
+    text-align: center;
+  }
+}
+
+.image-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 940px;
+
+  z-index: 0;
+}
+
+.left-under-container {
+  position: absolute;
+  bottom: 70px;
+  left: 80px;
+  display: flex;
+  gap: 30px;
+  font-size: 24px;
+}
+
+.contact-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  > img {
+    width: 40px;
+  }
+}
+
+.right-under-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 316px;
+  padding: 12px 12px 0px 12px;
+  border-radius: 10px;
+  border: 2px solid #059616;
+  background: linear-gradient(180deg, #85ff78 0%, #e4ffee 100%);
+  z-index: 1000;
+}
+
+.keyword-box {
+  padding: 0px 12px;
+  text-align: center;
+  opacity: 0.84;
+  background: #fff;
+  color: #059616;
+  font-size: 40px;
+  letter-spacing: -2px;
+}
+
+.keyword-text-box {
+  padding: 30px 5px;
+  color: #3b374b;
+  font-size: 24px;
+  line-height: 120%; /* 28.8px */
+  letter-spacing: -1.2px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  > div {
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 16px;
+
+    > img {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
