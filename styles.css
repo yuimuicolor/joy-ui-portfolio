@@ -25,13 +25,25 @@
 html,
 body {
   height: 100%;
+  min-width: 1200px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 html {
   scroll-behavior: smooth;
   font-size: 10px;
 }
-
 
 @media screen and (max-width: 1600px) {
   html {
@@ -56,7 +68,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .nav ul {
@@ -97,7 +109,6 @@ body {
   font-size: 4.2rem;
 }
 
-
 .nav-under-box {
   position: relative;
   margin-right: 3rem;
@@ -116,10 +127,30 @@ body {
 
 #main {
   margin-right: 31rem;
+  height: 100%;
+  overflow-y: auto;
+  min-height: 100vh;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+#main::-webkit-scrollbar {
+  width: 12px;
+}
+
+#main::-webkit-scrollbar-track {
+  background-color: rgba(256, 256, 256, 0.3);
+}
+
+#main::-webkit-scrollbar-thumb {
+  background-color: rgba(256, 256, 256, 0.7);
+  border-radius: 4px;
 }
 
 [data-section] {
   width: 100%;
   height: 100%;
   min-height: 100vh;
+  scroll-snap-align: start;
+
 }

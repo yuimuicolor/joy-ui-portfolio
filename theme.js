@@ -1,4 +1,3 @@
-// theme.js
 const sections = [...document.querySelectorAll("[data-section]")];
 const navLinks = [...document.querySelectorAll(".nav a")];
 
@@ -40,7 +39,7 @@ const io = new IntersectionObserver((entries) => {
     // 스크롤이 잠깐 멈췄을 때만 최종 섹션을 active
     history.replaceState(null, "", `#${pendingId}`);
     document.documentElement.setAttribute("data-theme",
-      document.getElementById(pendingId).getAttribute("data-theme") || "light");
+      document.getElementById(pendingId).getAttribute("data-theme") || "home");
     setActiveLink(pendingId);
   }, 120); // 100~180ms 사이 취향대로
 }, { threshold: [0.7], rootMargin: "0px 0px -10% 0px" }); // 살짝 보수적으로
