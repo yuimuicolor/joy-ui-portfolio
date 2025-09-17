@@ -17,3 +17,7 @@
   object-fit: cover;
   z-index: -100; /* 뒤에 깔기 */
 }
+
+.logo-img {
+  width: 50%;
+}
