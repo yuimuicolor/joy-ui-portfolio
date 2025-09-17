@@ -1,2 +1,17 @@
-.title { font-size: clamp(32px, 6vw, 72px); margin: 0 0 .5rem; }
-.lead { opacity: .8; }
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#bg-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100vh;
+  object-fit: cover;
+  z-index: -1; /* 뒤에 깔기 */
+}

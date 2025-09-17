@@ -16,7 +16,9 @@ async function mountComponent(hostEl, compPath) {
     const shadow = hostEl.attachShadow({ mode: "open" });
     // 2) CSS (optional)
     let css = "";
-    try { css = await loadText(`${base}/style.css`); } catch (_) {}
+    try {
+      css = await loadText(`${base}/style.css`);
+    } catch (_) {}
     shadow.innerHTML = `
       <style>${css}</style>
       <div class="comp-root">${html}</div>
@@ -29,7 +31,9 @@ async function mountComponent(hostEl, compPath) {
         // mount(shadowRoot or shadow.querySelector('.comp-root'))
         mod.mount(shadow.querySelector(".comp-root"), { host: hostEl, shadow });
       }
-    } catch (_) { /* JS 없는 컴포넌트면 무시 */ }
+    } catch (_) {
+      /* JS 없는 컴포넌트면 무시 */
+    }
   } catch (e) {
     hostEl.textContent = `컴포넌트 로드 실패: ${compPath}`;
     console.error(e);
@@ -38,7 +42,7 @@ async function mountComponent(hostEl, compPath) {
 
 // 페이지 내 모든 섹션 로드
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("[data-component]").forEach(el => {
+  document.querySelectorAll("[data-component]").forEach((el) => {
     const path = el.getAttribute("data-component");
     mountComponent(el, path);
   });
