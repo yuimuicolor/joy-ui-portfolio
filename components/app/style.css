@@ -1,0 +1,2 @@
+.title { font-size: clamp(32px, 6vw, 72px); margin: 0 0 .5rem; }
+.lead { opacity: .8; }

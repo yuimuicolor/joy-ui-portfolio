@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>YUI Portfolio</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/theme.js"></script>
+  <script type="module" defer src="/loader.js"></script>
+</head>
+<body>
+  <!-- 오른쪽 고정 내비 -->
+  <aside class="nav">
+    <ul>
+      <li><a href="#home">home</a></li>
+      <li><a href="#profile">profile</a></li>
+      <li><a href="#web">web</a></li>
+      <li><a href="#app">app</a></li>
+      <li><a href="#graphic">graphic</a></li>
+      <li><a href="#package">package</a></li>
+    </ul>
+  </aside>
+
+  <!-- 섹션 “호스트”들만 배치 (내용은 로더가 주입) -->
+  <main id="main">
+    <section id="home"    data-section data-theme="light"  data-component="home"></section>
+    <section id="profile" data-section data-theme="invert" data-component="profile"></section>
+
+    <section id="web"     data-section data-theme="light"  data-component="web"></section>
+   
+    <section id="app"     data-section data-theme="invert" data-component="app"></section>
+    
+    <section id="graphic"   data-section data-theme="light"  data-component="graphic"></section>
+   
+    <section id="package"   data-section data-theme="invert" data-component="package"></section>
+ 
+  </main>
+</body>
+</html>
