@@ -1,16 +1,213 @@
-@font-face {
-    font-family: 'SchoolSafetyStarrySky';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimByeolbichhaneulTTF-L.woff2') format('woff2');
-    font-weight: 300;
-    font-display: swap;
+.container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-@font-face {
-    font-family: 'SchoolSafetyStarrySky';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimByeolbichhaneulTTF-B.woff2') format('woff2');
-    font-weight: 700;
-    font-display: swap;
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  opacity: 0.7;
+  object-fit: cover;
+  z-index: -1;
 }
 
-.title { font-size: clamp(32px, 6vw, 72px); margin: 0 0 .5rem; }
-.lead { opacity: .8; }
+.contents-container {
+  width: 66%;
+  padding: 10rem 0rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.poster-container {
+  width: 50rem;
+  height: 50rem;
+  border-radius: 100%;
+  overflow: hidden;
+  background: url("../../public/assets/images/graphic-image-1.png") no-repeat
+    center center;
+  background-size: cover;
+
+  cursor: pointer;
+}
+
+.album-container {
+  width: 40rem;
+  height: 40rem;
+  border-radius: 100%;
+  overflow: hidden;
+  background: url("../../public/assets/images/graphic-image-2.png") no-repeat
+    center center;
+  background-size: cover;
+  align-self: self-end;
+  cursor: pointer;
+}
+
+.poster-container:hover, .album-container:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.poster-container:hover .hover-container,
+.album-container:hover .hover-container {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.hover-container {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(256, 256, 256, 0.7);
+  color: #3b374b;
+  text-align: center;
+  font-family: "Hakgyoansim Byeolbichhaneul OTF";
+  font-size: 4.8rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%; /* 62.4px */
+  letter-spacing: -2.4px;
+}
+
+.hover-container > p > span {
+  position: relative;
+}
+
+.hover-container > p > span::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  left: -1.5rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 100%;
+  background-color: #FF9BE8;
+  z-index: -1;
+}
+
+.album-container > .hover-container > p > span:before {
+  background-color: #FFF18B ;
+}
+
+.hover-container > p {
+  z-index: 100;
+}
+
+/* ===== Overlay / Modal Base ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;                 /* 비디오 위로 확실히 */
+  display: none;                  /* 기본 숨김 */
+}
+
+.modal.is-open {
+  display: block;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);    /* 누나가 원하는 0.7 블랙 딤 */
+  /* 선택: 살짝 블러 원하면 */
+  /* backdrop-filter: blur(2px); */
+}
+
+.modal__panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  background: white;
+}
+
+.modal__scroll {
+  max-height: calc(100vh - 80px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  text-align: center; /* 이미지를 중앙 정렬 */
+}
+
+.modal__scroll::-webkit-scrollbar {
+  width: 12px;
+}
+
+.modal__scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+}
+
+.modal__scroll::-webkit-scrollbar-track {
+  background-color: rgba(256, 256, 256, 1);
+}
+
+
+.poster-modal,
+.album-modal {
+  display: none; /* 기본 숨김 */
+}
+
+.poster-modal.active,
+.album-modal.active {
+  display: block;
+}
+
+/* 이미지 공통 스타일 */
+.poster-modal img,
+.album-modal img {
+  max-width: 100%;   /* 모달 패널 너비 안으로 맞춤 */
+  height: auto;      /* 비율 유지 */
+  object-fit: contain;
+}
+
+
+/* 닫기 버튼 */
+.modal__close {
+  position: absolute;
+  top: -2rem;                     /* 이미지 상단 밖에서 떠있게 */
+  right: -2rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  font-size: 5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #3b374b;
+}
+
+/* 바디 스크롤 잠금 */
+.body-lock {
+  overflow: hidden;
+  /* iOS 등에서 튕김 방지 */
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+/* (선택) 살짝 등장 애니메이션 */
+.modal.is-open .modal__backdrop { animation: fadeIn .15s ease-out; }
+.modal.is-open .modal__panel { animation: popIn .15s ease-out; }
+
+@keyframes fadeIn { from {opacity:0} to {opacity:1} }
+@keyframes popIn { from {transform: translate(-50%,-48%) scale(.98); opacity:.8}
+                   to   {transform: translate(-50%,-50%) scale(1);   opacity:1} }
+
+@media (max-width: 1600px) {
+  .contents-container {
+    width: 70%;
+  }
+}

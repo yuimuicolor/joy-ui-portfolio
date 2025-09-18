@@ -1,2 +1,39 @@
-<h1 class="title">그래픽 화면</h1>
-<p class="lead">스크롤하면 카테고리/프로젝트가 차례로 나와요</p>
+<link rel="stylesheet" href="/styles.css" />
+
+<!-- 모듈 스크립트: head든 body든 가능 -->
+<script type="module">
+  import { mount } from '/script.js';
+  mount(document.body, { host: location.host, shadow: false });
+</script>
+
+<div class="container">
+  <video autoplay muted loop id="bg-video">
+    <source src="../../public/assets/images/bg-sky.mp4" type="video/mp4" />
+    <img src="../../public/assets/images/bg-sky.png" />
+  </video>
+
+  <div class="contents-container">
+    <div class="poster-container" onclick="openPosterModal()">
+      <div class="hover-container"><p><span>포</span>스터<br>타임테이블</p></div>
+    </div>
+    <div class="album-container" onclick="openAlbumModal()">
+      <div class="hover-container"><p><span>앨</span>범커버<br>가사지</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="image-modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__close" type="button" aria-label="닫기" data-close>&times;</button>
+    <div class="modal__scroll">
+      <div class="poster-modal">
+        <img src="../../public/assets/images/poster1.png" alt="">
+        <img src="../../public/assets/images/poster2.png" alt="">
+      </div>
+      <div class="album-modal">
+        <img src="../../public/assets/images/album_cover.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
