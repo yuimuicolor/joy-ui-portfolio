@@ -1,9 +1,4 @@
-@font-face {
-    font-family: 'Cafe24MoyaMoya';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/Cafe24Moyamoya-Regular-v1.0.woff2') format('woff2');
-    font-weight: normal;
-    font-display: swap;
-}
+
 
 .title { font-size: clamp(32px, 6vw, 72px); margin: 0 0 .5rem; }
 .lead { opacity: .8; }
