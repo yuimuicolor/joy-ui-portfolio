@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100vh;
   align-items: center;
   padding: 30px 0px;
   background: #fff;
@@ -38,4 +39,29 @@
   font-weight: 400;
   line-height: 130%; /* 36.4px */
   letter-spacing: -1.4px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.web-button {
+  display: inline-flex;
+  padding: 5px 20px;
+  align-items: center;
+  gap: 5px;
+  border-radius: 50px;
+  border: 2px solid #d89dff;
+  background: rgba(255, 255, 255, 0.91);
+  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.25) inset,
+    2px 4px 10px 0 rgba(0, 0, 0, 0.25);
+
+  color: #2d2d2d;
+  font-family: DungGeunMo;
+  font-size: 28px;
+  font-weight: 400;
 }
