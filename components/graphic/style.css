@@ -31,7 +31,7 @@
   height: 50rem;
   border-radius: 100%;
   overflow: hidden;
-  background: url("../../public/assets/images/graphic-image-1.png") no-repeat
+  background: url("/public/assets/images/graphic-image-1.png") no-repeat
     center center;
   background-size: cover;
 
@@ -43,7 +43,7 @@
   height: 40rem;
   border-radius: 100%;
   overflow: hidden;
-  background: url("../../public/assets/images/graphic-image-2.png") no-repeat
+  background: url("/public/assets/images/graphic-image-2.png") no-repeat
     center center;
   background-size: cover;
   align-self: self-end;

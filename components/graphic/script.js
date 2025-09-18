@@ -10,11 +10,11 @@ export function mount(root, { host, shadow }) {
           <button class="modal__close" type="button" aria-label="닫기" data-close>&times;</button>
           <div class="modal__scroll">
             <div class="poster-modal">
-              <img src="../../public/assets/images/poster1.png" alt="">
-              <img src="../../public/assets/images/poster2.png" alt="">
+              <img src="/public/assets/images/poster1.png" alt="">
+              <img src="/public/assets/images/poster2.png" alt="">
             </div>
             <div class="album-modal">
-              <img src="../../public/assets/images/album_cover.png" alt="">
+              <img src="/public/assets/images/album_cover.png" alt="">
             </div>
           </div>
         </div>
