@@ -85,11 +85,31 @@
 }
 
 :root {
-  --bg: #435cd7;
+  --bg: #245DA8;
 }
 
 :root[data-theme="home"] {
-  --bg: #435cd7;
+  --bg: #245DA8;
+}
+
+:root[data-theme="profile"] {
+  --bg: #4357D7;
+}
+
+:root[data-theme="web"] {
+  --bg: #442FBA;
+}
+
+:root[data-theme="app"] {
+  --bg: #431888;
+}
+
+:root[data-theme="graphic"] {
+  --bg: #4399D7;
+}
+
+:root[data-theme="package"] {
+  --bg: #710507;
 }
 
 * {
@@ -123,13 +143,6 @@ html {
   scroll-behavior: smooth;
   font-size: 10px;
 }
-
-@media screen and (max-width: 1600px) {
-  html {
-    font-size: 8px;
-  }
-}
-
 body {
   margin: 0;
   background: white;
@@ -189,6 +202,17 @@ body {
   font-size: 4.2rem;
 }
 
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -0.7rem;
+  left: 0%;
+  width: 100%;
+  height: 0.3rem;
+  border-radius: 2rem;
+  background-color: rgba(256, 256, 256, 0.7);
+}
+
 .nav-under-box {
   position: relative;
   margin-right: 3rem;
@@ -238,4 +262,18 @@ body {
   width: min(1200px, 100%);
   min-height: 100vh;
   background: transparent;
+}
+
+
+
+@media screen and (max-width: 1600px) {
+  html {
+    font-size: 8px;
+  }
+
+  
+.nav a.active::after {
+  width: 65%;
+}
+
 }
