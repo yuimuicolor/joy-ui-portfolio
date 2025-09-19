@@ -1,9 +1,13 @@
 <link rel="stylesheet" href="/styles.css" />
 <script defer src="/script.js"></script>
 <div class="container">
-  <video autoplay muted loop id="bg-video">
-    <source src="/public/assets/images/bg-sky.mp4" type="video/mp4" />
-    <img src="/public/assets/images/bg-sky.png" />
-  </video>
+<video id="bg-video"
+       autoplay muted playsinline loop
+       preload="metadata"
+       poster="/public/assets/images/bg-sky.png"
+       webkit-playsinline>
+  <source src="/public/assets/images/bg-sky.mp4" type="video/mp4">
+</video>
+
   <img src="/public/assets/images/home_logo.png" alt="logo" class="logo-img">
 </div>
