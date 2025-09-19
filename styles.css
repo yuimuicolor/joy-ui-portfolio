@@ -21,8 +21,7 @@
 
 @font-face {
   font-family: "Paperlogy";
-  src: url(/public/assets/fonts/Paperlogy-2ExtraLight.ttf)
-    format("truetype");
+  src: url(/public/assets/fonts/Paperlogy-2ExtraLight.ttf) format("truetype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -70,34 +69,34 @@
 
 @font-face {
   font-family: "Paperlogy";
-  src: url(/public/assets/fonts/Paperlogy-8ExtraBold.ttf)
-    format("truetype");
+  src: url(/public/assets/fonts/Paperlogy-8ExtraBold.ttf) format("truetype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-    font-family: 'Cafe24MoyaMoya';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/Cafe24Moyamoya-Regular-v1.0.woff2') format('woff2');
-    font-weight: normal;
-    font-display: swap;
+  font-family: "Cafe24MoyaMoya";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/Cafe24Moyamoya-Regular-v1.0.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-display: swap;
 }
 
 :root {
-  --bg: #245DA8;
+  --bg: #245da8;
 }
 
 :root[data-theme="home"] {
-  --bg: #245DA8;
+  --bg: #245da8;
 }
 
 :root[data-theme="profile"] {
-  --bg: #4357D7;
+  --bg: #4357d7;
 }
 
 :root[data-theme="web"] {
-  --bg: #442FBA;
+  --bg: #442fba;
 }
 
 :root[data-theme="app"] {
@@ -105,7 +104,7 @@
 }
 
 :root[data-theme="graphic"] {
-  --bg: #4399D7;
+  --bg: #4399d7;
 }
 
 :root[data-theme="package"] {
@@ -118,7 +117,7 @@
 html,
 body {
   height: 100%;
-  min-width: 1200px;
+  min-width: 365px;
 }
 
 button {
@@ -128,7 +127,13 @@ button {
   padding: 0;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
   font-weight: normal;
@@ -153,7 +158,7 @@ body {
   position: fixed;
   right: 0;
   top: 0;
-  width: 310px;
+  width: 31rem;
   height: 100vh;
   background: var(--bg);
   color: white;
@@ -229,13 +234,17 @@ body {
   }
 }
 
+.mobile-only-text {
+  display: none;
+}
+
 #main {
-  width: calc(100% - 310px);
+  width: calc(100% - 31rem);
   height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;   /* 항상 스냅 */
+  scroll-snap-type: y mandatory; /* 항상 스냅 */
 }
 
 #main::-webkit-scrollbar {
@@ -252,28 +261,145 @@ body {
 }
 
 [data-section] {
-  scroll-snap-align: start;  /* 스냅 위치 지정 */
-  min-height: 100vh;        /* or height:100vh; */
+  scroll-snap-align: start; /* 스냅 위치 지정 */
+  min-height: 100vh; /* or height:100vh; */
 }
 
 /* 섹션 내부 래퍼: 패딩을 제외한 높이만큼은 꽉 채우고, 넘치면 자동 확장 */
-[data-section] > .container{
+[data-section] > .container {
   position: relative;
-  width: min(1200px, 100%);
+  width: min(340px, 100%);
   min-height: 100vh;
   background: transparent;
 }
-
-
 
 @media screen and (max-width: 1600px) {
   html {
     font-size: 8px;
   }
 
-  
-.nav a.active::after {
-  width: 65%;
+  .nav a.active::after {
+    width: 65%;
+  }
 }
 
+@media screen and (max-width: 1200px) {
+  #main {
+    width: 100%;
+    margin-top: 10rem;
+    height: calc(100vh);
+  }
+
+  .nav {
+    width: 100% !important;
+    min-width: 365px;
+    height: 15rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav ul {
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
+    height: 50%;
+  }
+
+  .nav a {
+    font-size: 2.8rem;
+  }
+
+  .nav a.active {
+    font-size: 3.4rem;
+  }
+
+  .nav a.active::after {
+    width: 110%;
+    height: 0.4rem;
+  }
+
+  .nav-under-box {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    position: unset;
+    width: 100%;
+    height: 80%;
+    font-size: 2.4rem;
+    margin-bottom: 0;
+
+    > img {
+      position: unset;
+      width: auto;
+      height: 12rem;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .nav ul {
+    gap: 3rem;
+  }
+
+  .nav a {
+    font-size: 2.4rem;
+  }
+
+  .nav a.active {
+    position: relative;
+    font-size: 2.8rem;
+  }
+
+  .nav-under-box {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .nav ul {
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 2rem;
+    column-gap: 3rem;
+    list-style: none; /* 점 제거 */
+    padding: 0;
+    margin-left: 6rem;
+  }
+
+  .nav a.active::after {
+    height: 0.3rem;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .nav-under-box {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .nav {
+    position: relative;
+  }
+
+  .nav ul {
+    position: absolute;
+    top: 3rem;
+    left: 0rem;
+    margin-left: 4rem;
+    row-gap: 1rem;
+  }
+
+  .nav-under-box {
+    > span {
+      display: none;
+    }
+  }
+
+  .mobile-only-text {
+    display: block;
+    font-size: 1.8rem;
+    text-align: center;
+  }
 }

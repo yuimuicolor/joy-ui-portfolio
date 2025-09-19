@@ -1,13 +1,16 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
   <meta charset="utf-8" />
-  <title>JOY(UI) Portfolio</title>
+  <title>JOY(UI)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="/public/assets/images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="/styles.css" />
   <script defer src="/theme.js"></script>
   <script type="module" defer src="/loader.js"></script>
 </head>
+
 <body>
   <!-- 오른쪽 고정 내비 -->
   <aside class="nav">
@@ -24,16 +27,18 @@
       <span>可能性は<br>いつも無限大☆</span>
     </div>
   </aside>
+    <div class="mobile-only-text">可能性はいつも無限大☆</div>
 
   <!-- 섹션 “호스트”들만 배치 (내용은 로더가 주입) -->
   <main id="main">
-    <section id="home"    data-section data-theme="home"  data-component="home"></section>
+    <section id="home" data-section data-theme="home" data-component="home"></section>
     <section id="profile" data-section data-theme="profile" data-component="profile"></section>
-    <section id="web"     data-section data-theme="web"  data-component="web"></section>
-    <section id="app"     data-section data-theme="app" data-component="app"></section>
-    <section id="graphic"   data-section data-theme="graphic"  data-component="graphic"></section>
-    <section id="package"   data-section data-theme="package" data-component="package"></section>
+    <section id="web" data-section data-theme="web" data-component="web"></section>
+    <section id="app" data-section data-theme="app" data-component="app"></section>
+    <section id="graphic" data-section data-theme="graphic" data-component="graphic"></section>
+    <section id="package" data-section data-theme="package" data-component="package"></section>
   </main>
 
 </body>
+
 </html>
