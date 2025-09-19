@@ -5,8 +5,7 @@
 
 @font-face {
   font-family: "Galmuri11Condensed";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2506-1@1.0/Galmuri11-Condensed.woff2")
-    format("woff2");
+  src: url(/public/assets/fonts/Galmuri11-Condensed.ttf);
   font-weight: normal;
   font-display: swap;
 }
@@ -77,8 +76,7 @@
 
 @font-face {
   font-family: "Cafe24MoyaMoya";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/Cafe24Moyamoya-Regular-v1.0.woff2")
-    format("woff2");
+  src: url(/public/assets/fonts/Cafe24Moyamoya-Regular-v1.0.ttf);
   font-weight: normal;
   font-display: swap;
 }
@@ -148,6 +146,7 @@ html {
   scroll-behavior: smooth;
   font-size: 10px;
 }
+
 body {
   margin: 0;
   background: white;
@@ -244,7 +243,7 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory; /* 항상 스냅 */
+  /* scroll-snap-type: y mandatory; 항상 스냅 */
 }
 
 #main::-webkit-scrollbar {
@@ -261,7 +260,7 @@ body {
 }
 
 [data-section] {
-  scroll-snap-align: start; /* 스냅 위치 지정 */
+  /* scroll-snap-align: start; 스냅 위치 지정 */
   min-height: 100vh; /* or height:100vh; */
 }
 

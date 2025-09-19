@@ -178,6 +178,7 @@
   }
   .contents-container {
     transform: unset;
+    zoom: unset;
     display: flex;
     flex-direction: column;
     align-items: center;

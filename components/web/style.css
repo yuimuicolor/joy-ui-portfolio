@@ -7,7 +7,7 @@
   align-items: center;
   padding: 3rem 0px;
   background: #fff;
-  background: url("/public/assets/images/web-bg.png") repeat center center
+  background: url(/public/assets/images/web-bg.png) repeat center center
     fixed;
   background-size: cover;
 }
