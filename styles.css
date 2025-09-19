@@ -243,7 +243,7 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  /* scroll-snap-type: y mandatory; 항상 스냅 */
+  scroll-snap-type: y mandatory;
 }
 
 #main::-webkit-scrollbar {
@@ -260,7 +260,7 @@ body {
 }
 
 [data-section] {
-  /* scroll-snap-align: start; 스냅 위치 지정 */
+  scroll-snap-align: start;
   min-height: 100vh; /* or height:100vh; */
 }
 
