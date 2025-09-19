@@ -286,7 +286,12 @@ body {
 @media screen and (max-width: 1200px) {
   #main {
     width: 100%;
-    height: calc(100vh);
+    margin-top: 15rem;
+    height: calc(100vh - 15rem);
+  }
+
+  [data-section] {
+    min-height:calc(100vh - 15rem);
   }
 
   .nav {
@@ -378,6 +383,9 @@ body {
 }
 
 @media screen and (max-width: 490px) {
+  #main {
+    margin-top: 0;
+  }
   .nav {
     position: relative;
   }
