@@ -19,6 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10rem;
 }
 
 .title-container {
@@ -26,20 +27,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 60px;
-  margin-bottom: 60px;
+  padding: 2rem 6rem;
+  margin-bottom: 6rem;
 
-  border-radius: 100px;
+  border-radius: 10rem;
   border: 2px solid #79748c;
   background: rgba(255, 255, 255, 0.83);
 
   color: #241d43;
   text-align: center;
   font-family: DungGeunMo;
-  font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 400;
   line-height: 130%; /* 36.4px */
-  letter-spacing: -1.4px;
+  letter-spacing: -0.14rem;
 }
 
 .button-container {
@@ -47,15 +48,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 3rem;
 }
 
 .web-button {
   display: inline-flex;
-  padding: 5px 20px;
+  padding: 0.5rem 2rem;
   align-items: center;
-  gap: 5px;
-  border-radius: 50px;
+  gap: 0.5rem;
+  border-radius: 5rem;
   border: 2px solid #d89dff;
   background: rgba(255, 255, 255, 0.91);
   box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.25) inset,
@@ -63,7 +64,7 @@
 
   color: #2d2d2d;
   font-family: DungGeunMo;
-  font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 400;
 }
 
@@ -74,8 +75,69 @@
   transition: all 0.6s ease-in-out;
 }
 
-@media (max-width: 1600px) {
+
+@media screen and (max-width: 900px) {
+  .main-image {
+    width: 100%;
+  }
+
+  
+.contents-container {
+  padding: 10rem 15rem;
+}
+}
+
+@media screen and (max-width: 700px) {
+
   .contents-container {
-    transform: scale(0.75);
+    height: 100%;
+    min-height: 100%;
+  padding: 10rem;
+  }
+
+  .title-container {
+    padding: 2rem 4rem;
+    margin-bottom: 6rem;
+font-size: 2.2em;
+  }
+
+  
+.web-button {
+  display: inline-flex;
+  padding: 0.5rem 2rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 50px;
+  border: 2px solid #d89dff;
+  background: rgba(255, 255, 255, 0.91);
+  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.25) inset,
+    2px 4px 10px 0 rgba(0, 0, 0, 0.25);
+
+  color: #2d2d2d;
+  font-family: DungGeunMo;
+  font-size: 2.2rem;
+  font-weight: 400;
+
+  > img {
+    width: 3rem;
+  }
+}
+
+}
+@media screen and (max-width: 490px) {
+
+  
+  .contents-container {
+  padding: 4rem;
+  }
+
+
+  .title-container {
+    padding: 2rem;
+font-size: 2rem;
+  }
+
+  .web-button {
+    font-size: 2rem;
   }
 }
