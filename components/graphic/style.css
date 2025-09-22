@@ -224,8 +224,36 @@
   }
 }
 
-@media (max-width: 1600px) {
+@media screen and (max-width: 1200px) {
   .contents-container {
+    zoom: 0.8;
     width: 70%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .contents-container {
+    zoom: 0.8;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contents-container {
+    zoom: 0.7;
+  }
+
+  .image-container img {
+    right: -200px;
+    height: 60%;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .container {
+    height: calc(100vh - 15rem) !important;
+  }
+  .contents-container {
+    zoom: 0.6;
   }
 }

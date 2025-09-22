@@ -31,12 +31,6 @@
   z-index: 1000;
 }
 
-@media screen and (max-width: 1200px) {
-  .container {
-    /* min-height: calc(100vh - 15rem); */
-  }
-}
-
 @media screen and (max-width: 490px) {
   .logo-img {
     width: 75%;

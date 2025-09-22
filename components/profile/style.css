@@ -166,6 +166,11 @@
     zoom: 0.75;
   }
 }
+@media (max-width: 1200px) {
+  .contents-container {
+    zoom: 0.6;
+  }
+}
 
 @media screen and (max-width: 800px) {
   .contents-container {
