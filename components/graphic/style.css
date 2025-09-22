@@ -247,6 +247,13 @@
     right: -200px;
     height: 60%;
   }
+
+  .modal__close {
+    top: -2.5rem; /* 이미지 상단 밖에서 떠있게 */
+    right: -2.5rem;
+    width: 5rem;
+    height: 5rem;
+  }
 }
 
 @media screen and (max-width: 490px) {
