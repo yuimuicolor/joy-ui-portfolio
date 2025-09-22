@@ -452,22 +452,9 @@ body {
     margin-top: 0;
   }
 
-  .comp-root {
-    height: 100vh;
-    margin-top: unset;
-  }
-
-  .container {
-    /* height: unset !important; */
-  }
-
-  .nav {
-    position: relative;
-  }
-
   .nav ul {
     position: absolute;
-    top: 3rem;
+    /* top: 3rem; */
     left: 0rem;
     margin-left: 4rem;
     row-gap: 1rem;
@@ -480,8 +467,15 @@ body {
   }
 
   .mobile-only-text {
+    position: absolute;
+    top: 15rem;
+    background: white;
+    left: auto;
+    right: auto;
+    width: 100%;
     display: block;
     font-size: 1.8rem;
     text-align: center;
+    z-index: 99999;
   }
 }
