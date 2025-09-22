@@ -21,9 +21,9 @@
 
 .contents-container {
   width: 66%;
-  padding: 10rem 0rem;
   display: flex;
   flex-direction: column;
+  zoom: 0.9;
 }
 
 .poster-container {
@@ -31,8 +31,8 @@
   height: 50rem;
   border-radius: 100%;
   overflow: hidden;
-  background: url(/public/assets/images/graphic-image-1.png) no-repeat
-    center center;
+  background: url(/public/assets/images/graphic-image-1.png) no-repeat center
+    center;
   background-size: cover;
 
   cursor: pointer;
@@ -43,14 +43,15 @@
   height: 40rem;
   border-radius: 100%;
   overflow: hidden;
-  background: url(/public/assets/images/graphic-image-2.png) no-repeat
-    center center;
+  background: url(/public/assets/images/graphic-image-2.png) no-repeat center
+    center;
   background-size: cover;
   align-self: self-end;
   cursor: pointer;
 }
 
-.poster-container:hover, .album-container:hover {
+.poster-container:hover,
+.album-container:hover {
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
@@ -92,12 +93,12 @@
   width: 3.6rem;
   height: 3.6rem;
   border-radius: 100%;
-  background-color: #FF9BE8;
+  background-color: #ff9be8;
   z-index: -1;
 }
 
 .album-container > .hover-container > p > span:before {
-  background-color: #FFF18B ;
+  background-color: #fff18b;
 }
 
 .hover-container > p {
@@ -108,8 +109,8 @@
 .modal {
   position: fixed;
   inset: 0;
-  z-index: 9999;                 /* 비디오 위로 확실히 */
-  display: none;                  /* 기본 숨김 */
+  z-index: 9999; /* 비디오 위로 확실히 */
+  display: none; /* 기본 숨김 */
 }
 
 .modal.is-open {
@@ -119,7 +120,7 @@
 .modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.7);    /* 누나가 원하는 0.7 블랙 딤 */
+  background: rgba(0, 0, 0, 0.7); /* 누나가 원하는 0.7 블랙 딤 */
   /* 선택: 살짝 블러 원하면 */
   /* backdrop-filter: blur(2px); */
 }
@@ -154,7 +155,6 @@
   background-color: rgba(256, 256, 256, 1);
 }
 
-
 .poster-modal,
 .album-modal {
   display: none; /* 기본 숨김 */
@@ -168,16 +168,15 @@
 /* 이미지 공통 스타일 */
 .poster-modal img,
 .album-modal img {
-  max-width: 100%;   /* 모달 패널 너비 안으로 맞춤 */
-  height: auto;      /* 비율 유지 */
+  max-width: 100%; /* 모달 패널 너비 안으로 맞춤 */
+  height: auto; /* 비율 유지 */
   object-fit: contain;
 }
-
 
 /* 닫기 버튼 */
 .modal__close {
   position: absolute;
-  top: -2rem;                     /* 이미지 상단 밖에서 떠있게 */
+  top: -2rem; /* 이미지 상단 밖에서 떠있게 */
   right: -2rem;
   width: 6rem;
   height: 6rem;
@@ -199,12 +198,31 @@
 }
 
 /* (선택) 살짝 등장 애니메이션 */
-.modal.is-open .modal__backdrop { animation: fadeIn .15s ease-out; }
-.modal.is-open .modal__panel { animation: popIn .15s ease-out; }
+.modal.is-open .modal__backdrop {
+  animation: fadeIn 0.15s ease-out;
+}
+.modal.is-open .modal__panel {
+  animation: popIn 0.15s ease-out;
+}
 
-@keyframes fadeIn { from {opacity:0} to {opacity:1} }
-@keyframes popIn { from {transform: translate(-50%,-48%) scale(.98); opacity:.8}
-                   to   {transform: translate(-50%,-50%) scale(1);   opacity:1} }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes popIn {
+  from {
+    transform: translate(-50%, -48%) scale(0.98);
+    opacity: 0.8;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
 
 @media (max-width: 1600px) {
   .contents-container {

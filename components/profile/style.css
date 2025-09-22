@@ -1,12 +1,11 @@
 .container {
   position: relative;
-  width: inherit;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5rem 0px;
   background: #fff;
 }
 
@@ -15,6 +14,7 @@
   width: 1068px;
   min-width: 1068px;
   min-height: 950px;
+  zoom: 0.9;
 }
 
 #bg-video {
@@ -163,8 +163,14 @@
 
 @media (max-width: 1600px) {
   .contents-container {
-  zoom: 0.75;
+    zoom: 0.75;
+  }
 }
+
+@media (max-width: 1600px) {
+  #bg-video {
+    min-height: unset;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -198,20 +204,18 @@
     > .left-under-container {
       order: 2;
     }
-
-    > .right-under-container {
+    > a {
       order: 4;
     }
 
-    > a {
+    > .mobile-download-text {
       order: 5;
     }
 
-    > .mobile-download-text {
+    > .right-under-container {
       order: 6;
     }
   }
-
 
   .profile-download-btn,
   .download-text,
@@ -222,9 +226,8 @@
     position: unset;
   }
 
-
   .right-top-container {
-    >img {
+    > img {
       width: 10rem;
     }
     > div {
@@ -234,16 +237,15 @@
       font-size: 2.4rem;
     }
   }
-  
+
   .image-box {
     transform: none;
     width: 100%;
     padding: 3rem 0;
   }
 
-  
   .left-under-container {
-    font-size: 2rem
+    font-size: 2rem;
   }
 
   .right-under-container {
@@ -260,10 +262,9 @@
     text-align: left;
   }
 
-  
   .profile-download-btn {
     height: 18rem;
-    overflow: hidden; 
+    overflow: hidden;
     > img {
       width: 20rem;
       transform: rotate(30deg);
@@ -281,13 +282,11 @@
 }
 
 @media screen and (max-width: 600px) {
-  
-.left-under-container {
-  flex-direction: column;
-  gap: 0.2rem;
+  .left-under-container {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
 }
-}
-
 
 @media screen and (max-width: 480px) {
   .contents-container {
