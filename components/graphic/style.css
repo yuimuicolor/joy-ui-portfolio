@@ -109,7 +109,7 @@
 .modal {
   position: fixed;
   inset: 0;
-  z-index: 9999; /* 비디오 위로 확실히 */
+  z-index: 999999; /* 비디오 위로 확실히 */
   display: none; /* 기본 숨김 */
 }
 
@@ -249,10 +249,11 @@
   }
 
   .modal__close {
-    top: -2.5rem; /* 이미지 상단 밖에서 떠있게 */
-    right: -2.5rem;
-    width: 5rem;
-    height: 5rem;
+    top: -1.5rem; /* 이미지 상단 밖에서 떠있게 */
+    right: -1.5rem;
+    width: 4rem;
+    height: 4rem;
+    font-size: 4rem;
   }
 }
 
