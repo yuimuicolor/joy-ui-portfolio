@@ -75,3 +75,15 @@
     width: 90%;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .contents-container {
+    zoom: 0.7;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .contents-container {
+    zoom: 0.6;
+  }
+}

@@ -72,6 +72,19 @@
   transition: all 0.6s ease-in-out;
 }
 
+@media (max-width: 1600px) {
+  .contents-container {
+    zoom: 0.8;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    min-height: 100vh !important;
+    padding-bottom: 15rem;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .main-image {
     width: 100%;

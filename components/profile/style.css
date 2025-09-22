@@ -167,12 +167,6 @@
   }
 }
 
-@media (max-width: 1600px) {
-  #bg-video {
-    min-height: unset;
-  }
-}
-
 @media screen and (max-width: 800px) {
   .contents-container {
     zoom: 0.6;
