@@ -128,13 +128,32 @@ links.forEach((a) => {
 
 // 초기 상태
 window.addEventListener("load", () => {
-  const id = (location.hash || `#${secs[0].id}`).slice(1);
-  const el = document.getElementById(id);
-  const scroller = getScroller();
-  if (el) {
-    const y = getTargetTop(scroller, el);
-    scrollToY(scroller, y, "auto"); // 초기엔 즉시 점프
+  const HOME_ID = "home";
+  const scroller =
+    root && root.scrollHeight > root.clientHeight ? root : window;
+
+  // 1) 해시 무시하고 항상 home으로 세팅
+  history.replaceState(null, "", `#${HOME_ID}`);
+  setActive(HOME_ID);
+
+  // 2) 일단 즉시 0으로 점프
+  if (scroller === window) {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  } else {
+    scroller.scrollTo({ top: 0, behavior: "auto" });
   }
-  setActive(id);
-  scanActive();
+
+  // 3) 모바일에서 주소창/폰트 로드로 살짝 밀리는 걸 몇 프레임 고정
+  let frames = 12;
+  const pinTop = () => {
+    frames--;
+    if (scroller === window) {
+      if (window.pageYOffset !== 0) window.scrollTo(0, 0);
+    } else {
+      if (scroller.scrollTop !== 0) scroller.scrollTop = 0;
+    }
+    if (frames > 0) requestAnimationFrame(pinTop);
+    else scanActive(); // 안정화 후 최종 스캔
+  };
+  requestAnimationFrame(pinTop);
 });
