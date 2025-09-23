@@ -4,9 +4,8 @@
   justify-content: center;
   width: inherit;
   min-height: 100vh;
-  height: 100%;
   align-items: center;
-  background: #fff;
+  background: #d89dff;
   background: url(../../assets/images/web-bg.png) repeat center center fixed;
   background-size: cover;
 }
