@@ -33,7 +33,7 @@
 
   color: #241d43;
   text-align: center;
-  font-family: DungGeunMo;
+  font-family: "neodgm";
   font-size: 2.8rem;
   font-weight: 400;
   line-height: 130%; /* 36.4px */
@@ -60,7 +60,7 @@
     2px 4px 10px 0 rgba(0, 0, 0, 0.25);
 
   color: #2d2d2d;
-  font-family: DungGeunMo;
+  font-family: "neodgm";
   font-size: 2.8rem;
   font-weight: 400;
 }
@@ -74,7 +74,7 @@
 
 @media (max-width: 1600px) {
   .contents-container {
-    zoom: 0.8;
+    zoom: 0.7;
   }
 }
 
@@ -86,12 +86,8 @@
 }
 
 @media screen and (max-width: 900px) {
-  .main-image {
-    width: 100%;
-  }
-
   .contents-container {
-    padding: 10rem 15rem;
+    zoom: 0.6;
   }
 }
 
@@ -100,6 +96,10 @@
     height: 100%;
     min-height: 100%;
     padding: 10rem;
+  }
+
+  .main-image {
+    width: 80%;
   }
 
   .title-container {
@@ -120,7 +120,7 @@
       2px 4px 10px 0 rgba(0, 0, 0, 0.25);
 
     color: #2d2d2d;
-    font-family: DungGeunMo;
+    font-family: "neodgm";
     font-size: 2.4rem;
     font-weight: 400;
 
@@ -136,10 +136,5 @@
 
   .title-container {
     padding: 2rem;
-    font-size: 2rem;
-  }
-
-  .web-button {
-    font-size: 2rem;
   }
 }
