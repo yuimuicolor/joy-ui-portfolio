@@ -1,84 +1,140 @@
-// theme.js (교체용)
-const root   = document.getElementById('main');
-const secs   = [...document.querySelectorAll('[data-section]')];
-const links  = [...document.querySelectorAll('.nav a')];
+// theme.mobile-safe.js (교체용)
+const root = document.getElementById("main");
+const secs = [...document.querySelectorAll("[data-section]")];
+const links = [...document.querySelectorAll(".nav a")];
 
-let lockTarget = null;      // 내비 클릭 중 목표 섹션 id (중간 섹션 무시)
-let ticking    = false;     // rAF 중복 방지
+let lockTarget = null;
+let ticking = false;
 
-function setActive(id){
-  links.forEach(a=>{
-    const on = a.getAttribute('href') === `#${id}`;
-    a.classList.toggle('active', on);
-    const old = a.querySelector('.nav-badge'); if (old) old.remove();
+// 실제 스크롤 대상이 #main인지, window/body인지 판별
+function getScroller() {
+  // #main이 스크롤바가 있고 실제로 스크롤 값이 변하면 그걸 우선 사용
+  if (root && root.scrollHeight > root.clientHeight) return root;
+  return window; // 모바일 사파리 등에서 body가 스크롤 담당
+}
+
+// scroller별 유틸들
+function getScrollTop(scroller) {
+  return scroller === window
+    ? window.pageYOffset || document.documentElement.scrollTop
+    : scroller.scrollTop;
+}
+function scrollToY(scroller, top, behavior = "smooth") {
+  if (scroller === window) {
+    window.scrollTo({ top, behavior });
+  } else {
+    scroller.scrollTo({ top, behavior });
+  }
+}
+// root 기준 상대좌표 → scroller 기준 절대 Y 계산
+function getTargetTop(scroller, el) {
+  const elRect = el.getBoundingClientRect();
+  const baseRect =
+    scroller === window
+      ? document.documentElement.getBoundingClientRect() // (=0,0)
+      : scroller.getBoundingClientRect();
+
+  // scroller 현재 스크롤 + (엘리먼트 화면내 top - 스크롤컨테이너 화면내 top)
+  return getScrollTop(scroller) + (elRect.top - baseRect.top);
+}
+
+function setActive(id) {
+  links.forEach((a) => {
+    const on = a.getAttribute("href") === `#${id}`;
+    a.classList.toggle("active", on);
+    const old = a.querySelector(".nav-badge");
+    if (old) old.remove();
     if (on) {
-      const b = document.createElement('span');
-      b.className = 'nav-badge'; b.setAttribute('aria-hidden','true');
+      const b = document.createElement("span");
+      b.className = "nav-badge";
+      b.setAttribute("aria-hidden", "true");
       a.appendChild(b);
     }
   });
   const el = document.getElementById(id);
   document.documentElement.setAttribute(
-    'data-theme', el?.getAttribute('data-theme') || 'home'
+    "data-theme",
+    el?.getAttribute("data-theme") || "home"
   );
-  history.replaceState(null, '', `#${id}`);
+  history.replaceState(null, "", `#${id}`);
 }
 
-function scanActive(){
+function scanActive() {
   ticking = false;
+  if (lockTarget) {
+    setActive(lockTarget);
+    return;
+  }
 
-  // 내비 클릭 잠금 상태면 목표만 활성화하고 끝
-  if (lockTarget) { setActive(lockTarget); return; }
+  const scroller = getScroller();
+  const mid =
+    getScrollTop(scroller) +
+    (scroller === window ? window.innerHeight / 2 : scroller.clientHeight / 2);
 
-  // 컨테이너 중앙에 가장 가까운 섹션을 active로
-  const mid = root.scrollTop + root.clientHeight / 2;
   let best = null;
-  for (const s of secs){
-    const top = s.offsetTop;
+  for (const s of secs) {
+    const rect = s.getBoundingClientRect();
+    const baseTop =
+      scroller === window ? 0 : scroller.getBoundingClientRect().top;
+    const top = getScrollTop(scroller) + (rect.top - baseTop);
     const bottom = top + s.offsetHeight;
-    const dist = (mid < top) ? top - mid : (mid > bottom ? mid - bottom : 0);
+    const dist = mid < top ? top - mid : mid > bottom ? mid - bottom : 0;
     if (!best || dist < best.dist) best = { id: s.id, dist };
   }
   if (best) setActive(best.id);
 }
 
-root.addEventListener('scroll', () => {
-  if (!ticking){
+function onScroll() {
+  if (!ticking) {
     window.requestAnimationFrame(scanActive);
     ticking = true;
   }
-}, { passive:true });
+}
 
-// 내비 클릭: 목표 섹션만 즉시 활성화 + 스무스 스크롤, 도착 후 잠금 해제
-links.forEach(a=>{
-  a.addEventListener('click', (e)=>{
+// 스크롤 이벤트(둘 다 걸어 안전하게)
+root?.addEventListener("scroll", onScroll, { passive: true });
+window.addEventListener("scroll", onScroll, { passive: true });
+
+// 내비 클릭
+links.forEach((a) => {
+  a.addEventListener("click", (e) => {
     e.preventDefault();
-    const id = a.getAttribute('href').slice(1);
+    const id = a.getAttribute("href").slice(1);
     const el = document.getElementById(id);
     if (!el) return;
 
-    lockTarget = id;                 // 🔒 중간 섹션 무시
-    setActive(id);                   // 즉시 UI 반영
-    root.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
+    const scroller = getScroller();
+    lockTarget = id;
+    setActive(id);
 
-    // 스크롤이 사실상 도착하면 잠금 해제
-    const watcher = setInterval(()=>{
-      const done = Math.abs(root.scrollTop - el.offsetTop) < 2;
-      if (done){
+    // 스냅/모바일 흔들림 감안해 bounding 기반으로 목표 Y 계산
+    const targetY = getTargetTop(scroller, el);
+    scrollToY(scroller, targetY, "smooth");
+
+    // 도착 감지(오차 여유 + 타임아웃)
+    const threshold = 6; // 모바일에서 2px은 너무 빡셈
+    let tries = 0;
+    const watcher = setInterval(() => {
+      const done = Math.abs(getScrollTop(scroller) - targetY) < threshold;
+      if (done || ++tries > 40) {
+        // ~2초
         clearInterval(watcher);
-        lockTarget = null;           // 🔓 해제
-        scanActive();                // 최종 스캔으로 안정화
+        lockTarget = null;
+        scanActive();
       }
     }, 50);
-    setTimeout(()=>{ clearInterval(watcher); lockTarget = null; }, 1500); // 안전 해제
   });
 });
 
 // 초기 상태
-window.addEventListener('load', ()=>{
+window.addEventListener("load", () => {
   const id = (location.hash || `#${secs[0].id}`).slice(1);
   const el = document.getElementById(id);
-  if (el) root.scrollTo({ top: el.offsetTop });
+  const scroller = getScroller();
+  if (el) {
+    const y = getTargetTop(scroller, el);
+    scrollToY(scroller, y, "auto"); // 초기엔 즉시 점프
+  }
   setActive(id);
   scanActive();
 });
