@@ -194,6 +194,7 @@
   line-height: 1;
   cursor: pointer;
   color: #3b374b;
+  z-index: 1000000;
 }
 
 /* 바디 스크롤 잠금 */
