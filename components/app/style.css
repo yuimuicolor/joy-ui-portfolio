@@ -164,6 +164,7 @@ html {
 @media screen and (max-width: 800px) {
   .contents-container {
     zoom: 0.8;
+    padding: 0 6rem;
   }
 }
 
