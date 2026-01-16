@@ -20,6 +20,10 @@
   z-index: -1;
 }
 
+#bg > img {
+  width: 100%;
+}
+
 .contents-container {
   width: 100%;
   display: flex;
