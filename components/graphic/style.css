@@ -38,7 +38,7 @@
   height: 400px;
   border-radius: 100%;
   overflow: hidden;
-  background: url(../../assets/images/graphic-image-1.png) no-repeat center
+  background: url(../../assets/images/graphic-image-1.webp) no-repeat center
     center;
   background-size: cover;
 
@@ -50,7 +50,7 @@
   height: 300px;
   border-radius: 100%;
   overflow: hidden;
-  background: url(../../assets/images/graphic-image-2.png) no-repeat center
+  background: url(../../assets/images/graphic-image-2.webp) no-repeat center
     center;
   background-size: cover;
   align-self: self-end;

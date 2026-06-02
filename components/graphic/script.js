@@ -12,16 +12,16 @@ export function mount(root, { host, shadow }) {
           <button class="modal__close" type="button" aria-label="닫기" data-close>&times;</button>
           <div class="modal__scroll">
             <div class="poster-modal">
-              <img src="../../assets/images/poster1.png" alt="">
-              <img src="../../assets/images/poster2.png" alt="">
+              <img src="../../assets/images/poster1.webp" alt="">
+              <img src="../../assets/images/poster2.webp" alt="">
             </div>
             <div class="album-modal">
-              <img src="../../assets/images/album_cover.png" alt="">
+              <img src="../../assets/images/album_cover.webp" alt="">
             </div>
           </div>
         </div>
       </div>
-    `
+    `,
     );
     modal = root.querySelector(".modal");
   }
